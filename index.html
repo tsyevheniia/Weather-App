@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d4f6e0adbd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="toggle-container">
+        <label class="toggle">
+            <input type="checkbox" id="toggleMode">
+            <span id="click"></span>
+        </label>
+        <p id="mode" style="margin-top: 1%; text-align: center">To Dark Mode</p>
+    </div>
+
+    <div class="search-container">
+        <form>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="searchInput" type="text" placeholder="Search for your city..." required/>
+            <button type="submit" id="searchButton" >Search</button>
+        </form>
+    </div>
+    <div class="location-container">
+        <i class="fa-solid fa-location-crosshairs"></i>
+        <button id="location-button">Current Location</button>
+    </div>
+</header>
+<div class="sections ">
+
+</div>
+
+
+<script src="style.js"></script>
+</body>
+</html>

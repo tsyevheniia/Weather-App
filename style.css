@@ -1,0 +1,333 @@
+body {
+    width: 100%;
+    margin: 0;
+}
+
+.navbar {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    gap: 15.8%;
+    padding: 3% 0 0 5%;
+    height: 20vh;
+
+}
+
+.darkMode {
+    color: floralwhite;
+    background: linear-gradient(45deg, #1c2326, #353d43, #4a5359, #2f363a);
+}
+.darkMode .section1, .darkMode .section2, .darkMode  .section3, .darkMode  .section4
+{
+    background : linear-gradient(45deg, #2f353b, #4e5d63, #6b6f75, #363e43);
+}
+.lightMode {
+    color: black;
+    background: linear-gradient(135deg, #FFFFFF, grey);
+}
+.lightMode .section1, .lightMode .section2, .lightMode .section3,.lightMode .section4 {
+    background : linear-gradient(90deg, #D9D9D9, #F5F5F5)
+}
+
+.toggle-container{
+    width: 7%;
+    height: 30%;
+}
+.toggle {
+    position: relative;
+    display: inline-block;
+    margin-left: 3%;
+    width: 100%;
+    height: 100%;
+}
+
+#toggleMode {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+#click {
+    position: absolute;
+    inset: 0;
+    border-radius: 34px;
+    background-color: grey;
+    margin-bottom: 5%;
+}
+
+#click:before {
+    position: absolute;
+    content: "";
+    top: 10%;
+    left: 4%;
+    height: 80%;
+    width: 25%;
+    border-radius: 50%;
+    background-color: white;
+
+}
+
+#toggleMode:checked + #click {
+    background-color: black;
+}
+
+#toggleMode:checked + #click:before {
+    opacity: 0;
+}
+
+#toggleMode:checked + #click:after {
+    position: absolute;
+    content: "";
+    top: 10%;
+    right: 4%;
+    height: 80%;
+    width: 25%;
+    border-radius: 50%;
+    background-color: white;
+
+}
+
+.search-container {
+    position: relative;
+    width: 40%;
+    height: 30%;
+}
+
+.search-container i {
+    position: absolute;
+    left: 1.5%;
+    top: 30%;
+    color: grey;
+}
+
+#searchInput {
+    width: 80%;
+    border-radius: 30px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    padding: 10px 10px 10px 40px;
+    outline: none;
+}
+#searchButton{
+    width: 15%;
+    border-radius: 30px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    padding: 10px 10px;
+    outline: none;
+
+}
+.location-container {
+    position: relative;
+    width: 11%;
+    height: 30%;
+}
+
+.location-container i {
+    position: absolute;
+    left: 5%;
+    top: 25%;
+    color: white;
+    z-index: 2;
+}
+
+#location-button {
+    position: absolute;
+    background-color: green;
+    color: black;
+    font-weight: bold;
+    border-radius: 30px;
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+    height: 100%;
+    margin-left: 2% ;
+    padding-left: 11%;
+    text-align: center;
+    z-index: 1;
+}
+
+.sections {
+    position: relative;
+    display: flex;
+    padding: 1% 5%;
+    height: 80vh;
+    flex-wrap: wrap;
+    gap: 10%;
+    box-sizing: border-box;
+}
+
+.section-up{
+    border-radius: 30px;
+    box-shadow: 15px 15px 10px gray;
+    text-align: center;
+    font-size: 1.2rem;
+    height: 45%;
+}
+.section-down{
+    height: 40%;
+    border-radius: 30px;
+    box-shadow: 15px 15px 10px gray;
+}
+.section1 {
+    width: 30%;
+}
+.section2 {
+    width: 55%;
+    display: flex;
+    gap: 5%;
+    align-items: center;
+}
+.section3 {
+    width: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+.section4 {
+    width: 65%;
+}
+#text-container__section1 {
+    margin: 12%;
+}
+
+#text-container__section1 h1 {
+    margin: 14% 0 0 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#text-container__section1 p {
+    margin: 0 0 0 0;
+}
+
+
+
+.main-details {
+    margin: 2%;
+    width: 25%;
+
+}
+
+.main-details h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.main-details p {
+    margin: 0;
+    text-align: left;
+    margin-left: 10%;
+    width: 100%;
+}
+
+.main-details img {
+    height: 2rem;
+}
+
+#sunrise, #sunset {
+    margin: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#sunrise-text, #sunset-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.weather {
+    margin: 1.5%;
+    width: 25%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.weather img {
+    height: 10rem;
+    text-align: center;
+}
+.weather p{
+    margin-top: 0;
+}
+
+.details {
+    width: 30%;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(2, 7rem);
+
+    margin: 1.5%;
+}
+
+#humidity p, #wind p, #pressure p, #uv p {
+    margin: 0;
+    font-size: 15px;
+}
+
+#humidity img, #wind img, #pressure img, #uv img {
+    height: 4rem;
+}
+
+
+
+.section3 h1 {
+    width: 100%;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+#section3-row1, #section3-row2, #section3-row3 {
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    height: 1.5rem;
+    margin-top: 6%;
+
+}
+
+.section3 img {
+    position: relative;
+    height: 2rem;
+    top: 30%;
+}
+
+.section4-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0 10%  ;
+    height: 80%;
+}
+.section4-column{
+    border-radius: 30px;
+    width: 20%;
+    margin-left: 2%;
+    text-align: center;
+}
+.light {
+    background: linear-gradient(60deg, #F6FAD9,#F88508);
+}
+.dark{
+    background: linear-gradient(60deg, #443D64,#6582C6);
+}
+.section4-column p{
+    margin: 10%
+}
+.section4 h1{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    margin: 0 0 2% 0;
+}
+.section4 img{
+    height: 4rem;
+}
