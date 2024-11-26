@@ -80,9 +80,35 @@ const getWeatherByCity = async function () {
         })
         .catch(error => errorMessage())
 }
+
+const createWeatherDetails = function (id, iconSrc, value, label) {
+    return `
+        <div id="${id}">
+            <img src="${iconSrc}" alt="${label}">
+            <p style="font-weight: bold">${value}</p>
+            <p>${label}</p>
+        </div>
+    `;
+}
+const createMainDetails = function (id, src, alt, secondId,label, value){
+    return `<div id="${id}">
+        <img src="${src}" alt="${alt}">
+            <div id="${secondId}">
+                <p style="font-weight: bold">${label}</p>
+                <p>${value}</p>
+            </div>
+    </div>`
+}
+const createForecastFor3Days = function (id,src,temp,date){
+    return `<div id="${id}">
+        <img src="${src}">
+            <p>${temp}</p>
+            <p>${date}</p>
+    </div>`
+}
+
 const innerHtml = function (value) {
-    const html =
-        `
+    sections.innerHTML = `
     <div class="section-up section1">
         <div id="text-container__section1">
             <h3>${value.location.name}</h3>
@@ -94,115 +120,55 @@ const innerHtml = function (value) {
         <div class="main-details">
             <h1> ${value.current.temp_c}</h1>
             <p> Feels like: <span style="font-weight: bold">${value.current.feelslike_c}</span></p>
-            <div id="sunrise">
-                <img src="images/img.png" alt="sunrise">
-                <div id="sunrise-text">
-                    <p style="font-weight: bold">Sunrise</p>
-                    <p>${value.forecast.forecastday[0].astro.sunrise}</p>
-                </div>
-            </div>
-            <div id="sunset">
-                <img src="images/img_1.png" alt="sunrise">
-                <div id="sunset-text">
-                    <p style="font-weight: bold">Sunset</p>
-                    <p>${value.forecast.forecastday[0].astro.sunset}</p>
-                </div>
-            </div>
+            ${createMainDetails("sunrise", "images/img.png", "sunrise", "sunrise-text", "Sunrise", `${value.forecast.forecastday[0].astro.sunrise}`)}
+            ${createMainDetails("sunset", "images/img_1.png", "sunset", "sunset-text", "Sunset", `${value.forecast.forecastday[0].astro.sunset}`)}
         </div>
         <div class="weather">
             <img src=${value.current.condition.icon} alt="weather">
             <p>${value.current.condition.text}</p>
         </div>
         <div class="details">
-            <div id="humidity">
-                <img src="images/img_2.png" alt="humidity">
-                <p style="font-weight: bold">${value.current.humidity}%</p>
-                <p>Humidity</p>
-            </div>
-            <div id="wind">
-                <img src="images/img_3.png" alt="wind">
-                <p style="font-weight: bold">${value.current.wind_kph}km/h</p>
-                <p>Wind Speed</p>
-            </div>
-            <div id="pressure">
-                <img src="images/img_4.png" alt="pressure">
-                <p style="font-weight: bold">${value.current.pressure_mb}phPa</p>
-                <p>Pressure</p>
-            </div>
-            <div id="uv">
-                <img src="images/img_5.png" alt="uv">
-                <p style="font-weight: bold">${value.current.uv}</p>
-                <p>UV</p>
-            </div>
+            ${createWeatherDetails('humidity', 'images/img_2.png', `${value.current.humidity}%`, 'Humidity')}
+            ${createWeatherDetails('wind', 'images/img_3.png', `${value.current.wind_kph}km/h`, 'Wind Speed')}
+            ${createWeatherDetails('pressure', 'images/img_4.png', `${value.current.pressure_mb}phPa`, 'Pressure')}
+            ${createWeatherDetails('uv', 'images/img_5.png', value.current.uv, 'UV')}
         </div>
     </div>
     <div class="section-down section3">
         <h1>3 Days Forecast:</h1>
-        <div id="section3-row1">
-             <img src=${value.forecast.forecastday[0].day.condition.icon}>
-            <p>${value.forecast.forecastday[0].day.avgtemp_c}°C</p>
-            <p>${value.forecast.forecastday[0].date.split("-").reverse().join('.')}</p>
-        </div>
-        <div id="section3-row2">
-            <img src=${value.forecast.forecastday[1].day.condition.icon}>
-            <p>${value.forecast.forecastday[1].day.avgtemp_c}°C</p>
-            <p>${value.forecast.forecastday[1].date.split("-").reverse().join('.')}</p>
-        </div>
-        <div id="section3-row3">
-          <img src=${value.forecast.forecastday[2].day.condition.icon}>
-            <p>${value.forecast.forecastday[2].day.avgtemp_c}°C</p>
-            <p>${value.forecast.forecastday[2].date.split("-").reverse().join('.')}</p>
-        </div>
+        ${createForecastFor3Days('section3-row1', `${value.forecast.forecastday[0].day.condition.icon}`, `${value.forecast.forecastday[0].day.avgtemp_c}°C`, `${value.forecast.forecastday[0].date.split("-").reverse().join('.')}`)}
+        ${createForecastFor3Days('section3-row2', `${value.forecast.forecastday[1].day.condition.icon}`, `${value.forecast.forecastday[1].day.avgtemp_c}°C`, `${value.forecast.forecastday[1].date.split("-").reverse().join('.')}`)}
+        ${createForecastFor3Days('section3-row3', `${value.forecast.forecastday[2].day.condition.icon}`, `${value.forecast.forecastday[2].day.avgtemp_c}°C`, `${value.forecast.forecastday[2].date.split("-").reverse().join('.')}`)}
     </div>
      <div class="section-down section4">
         <h1>Hourly Forecast:</h1>
         <div class="section4-container">
-
-            <div class="section4-column light">
-                <p>09:00</p>
-                <img src=${value.forecast.forecastday[0].hour[9].condition.icon} alt="sun">
-                <p>${value.forecast.forecastday[0].hour[9].temp_c}</p>
-                <i class="fa-solid fa-wind"></i>
-                <p>${value.forecast.forecastday[0].hour[9].wind_kph}km/h</p>
-            </div>
-
-            <div class="section4-column light">
-                <p>12:00</p>
-                <img src=${value.forecast.forecastday[0].hour[12].condition.icon} alt="sun">
-                <p>${value.forecast.forecastday[0].hour[12].temp_c}</p>
-                <i class="fa-solid fa-wind"></i>
-                <p>${value.forecast.forecastday[0].hour[12].wind_kph}km/h</p>
-            </div>
-            <div class="section4-column light">
-                <p>15:00</p>
-                <img src=${value.forecast.forecastday[0].hour[15].condition.icon} alt="sun">
-                <p>${value.forecast.forecastday[0].hour[15].temp_c}</p>
-                <i class="fa-solid fa-wind"></i>
-                <p>${value.forecast.forecastday[0].hour[15].wind_kph}km/h</p>
-            </div>
-            <div class="section4-column light">
-                <p>18:00</p>
-                <img src=${value.forecast.forecastday[0].hour[18].condition.icon} alt="sun">
-                <p>${value.forecast.forecastday[0].hour[18].temp_c}</p>
-                <i class="fa-solid fa-wind"></i>
-                <p>${value.forecast.forecastday[0].hour[18].wind_kph}km/h</p>
-            </div>
-            <div class="section4-column dark">
-                <p>21:00</p>
-                <img src=${value.forecast.forecastday[0].hour[21].condition.icon} alt="sun">
-                <p>${value.forecast.forecastday[0].hour[21].temp_c}</p>
-                <i class="fa-solid fa-wind"></i>
-                <p>${value.forecast.forecastday[0].hour[21].wind_kph}km/h</p>
-            </div>
-            <div class="section4-column dark">
-                <p>00:00</p>
-                <img src=${value.forecast.forecastday[1].hour[0].condition.icon} alt="sun">
-                <p>${value.forecast.forecastday[1].hour[0].temp_c}</p>
-                <i class="fa-solid fa-wind"></i>
-                <p>${value.forecast.forecastday[1].hour[0].wind_kph}km/h</p>
-            </div>
+        ${createHoursForecast(value)} 
         </div>
     </div>
     `
-    sections.innerHTML = html
 }
+    const createHoursForecast = function (value) {
+        let dailyHours = [9, 12, 15, 18]
+        let forecastHtml = '';
+        dailyHours.forEach(hour => {
+            forecastHtml += `<div class="section4-column light">
+            <p>${hour}:00</p>
+            <img src=${value.forecast.forecastday[0].hour[hour].condition.icon} alt="sun">
+                <p>${value.forecast.forecastday[0].hour[hour].temp_c}</p>
+                <i class="fa-solid fa-wind"></i>
+                <p>${value.forecast.forecastday[0].hour[hour].wind_kph}km/h</p>
+        </div>`
+        })
+        let nightHours = [21, 0]
+        nightHours.forEach(hour => {
+            forecastHtml += `<div class="section4-column dark">
+            <p>${hour}:00</p>
+            <img src=${value.forecast.forecastday[0].hour[hour].condition.icon} alt="sun">
+                <p>${value.forecast.forecastday[0].hour[hour].temp_c}</p>
+                <i class="fa-solid fa-wind"></i>
+                <p>${value.forecast.forecastday[0].hour[hour].wind_kph}km/h</p>
+        </div>`
+        })
+        return forecastHtml;
+    }
