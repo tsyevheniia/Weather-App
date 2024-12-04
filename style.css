@@ -4,11 +4,9 @@ body {
 }
 
 .navbar {
-    box-sizing: border-box;
-    display: flex;
-    gap: 15.8%;
-    padding: 3% 0 0 5%;
     height: 20vh;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
 }
 
 .darkMode {
@@ -31,22 +29,18 @@ body {
 }
 
 .toggle-container{
-    width: 7%;
+    width: 7rem;
     height: 30%;
 }
 
 .toggle {
     position: relative;
-    display: inline-block;
-    margin-left: 3%;
     width: 100%;
     height: 100%;
 }
 
 #toggleMode {
     opacity: 0;
-    width: 0;
-    height: 0;
 }
 
 #click {
@@ -91,7 +85,6 @@ body {
 .search-container {
     position: relative;
     width: 40%;
-    height: 30%;
 }
 
 .search-container i {
@@ -102,7 +95,7 @@ body {
 }
 
 #searchInput {
-    width: 80%;
+    width: 75%;
     border-radius: 30px;
     box-sizing: border-box;
     border: 2px solid black;
@@ -111,25 +104,23 @@ body {
 }
 
 #searchButton{
-    width: 15%;
+    width: 20%;
     border-radius: 30px;
-    box-sizing: border-box;
     border: 2px solid black;
     padding: 10px 10px;
-    outline: none;
 
 }
 
 .location-container {
     position: relative;
-    width: 11%;
+    width: 14%;
     height: 30%;
 }
 
 .location-container i {
     position: absolute;
     left: 7%;
-    top: 25%;
+    top: 30%;
     color: white;
     z-index: 2;
 }
@@ -137,14 +128,12 @@ body {
 #location-button {
     position: absolute;
     background-color: green;
-    color: black;
     font-weight: bold;
     border-radius: 30px;
-    box-sizing: border-box;
     border: none;
     width: 100%;
     height: 100%;
-    margin-left: 2% ;
+    margin-left: 3% ;
     padding-left: 11%;
     text-align: center;
     z-index: 1;
@@ -156,7 +145,6 @@ body {
     height: 80vh;
     flex-wrap: wrap;
     gap: 10%;
-    box-sizing: border-box;
 }
 
 .section-up{
@@ -164,16 +152,20 @@ body {
     box-shadow: 12px 12px 10px gray;
     text-align: center;
     font-size: 1.2rem;
+    height: 35vh;
 }
 
 .section-down{
-    height: 40%;
     border-radius: 30px;
     box-shadow: 12px 12px 10px gray;
+    height: 34vh;
 }
 
 .section1 {
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .section2 {
@@ -194,19 +186,7 @@ body {
     width: 65%;
 }
 
-#text-container__section1 {
-    margin: 12%;
-}
 
-#text-container__section1 h1 {
-    margin: 14% 0 0 0;
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-#text-container__section1 p {
-    margin: 0 0 0 0;
-}
 
 .main-details {
     margin: 2%;
@@ -262,7 +242,7 @@ body {
     width: 30%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 7rem);
+    grid-template-rows: repeat(2, 8rem);
     margin: 1.5%;
 }
 
@@ -277,31 +257,29 @@ body {
 
 .section3 h1 {
     width: 100%;
-    font-size: 1.2em;
     text-align: center;
-    margin-bottom: 0;
+    margin: 1.3rem 0 0 0;
+    font-size: x-large;
 }
 
 #section3-row1, #section3-row2, #section3-row3 {
     display: flex;
     flex-direction: row;
     gap: 10%;
-    height: 1.5rem;
+    height: 2rem;
     margin-top: 6%;
     justify-content: center;
 }
 
 .section3 img {
-    position: relative;
     height: 2rem;
-    top: 30%;
 }
 
 .section4-container {
     display: flex;
     flex-direction: row;
     padding: 0 10%  ;
-    height: 80%;
+    height: 79%;
 }
 .section4-column{
     border-radius: 30px;
@@ -319,16 +297,274 @@ body {
 }
 
 .section4-column p{
-    margin: 10%
+    margin: 8%
 }
 
 .section4 h1{
-    height: 10%;
     width: 100%;
     text-align: center;
-    margin: 0 0 2% 0;
+    font-size: 2rem;
 }
 
 .section4 img{
     height: 4rem;
+}
+
+@media (max-width: 600px) {
+
+    .sections{
+        gap:0;
+        padding:  0 ;
+        height: auto;
+    }
+    #mode{
+        font-size: .7rem;
+    }
+    .section3{
+        gap:0
+    }
+    #searchInput{
+        width: 61%;
+        padding: 5px 5px 5px 20px;
+    }
+    #searchButton{
+        width: 35%;
+        padding: 5px;
+    }
+    #location-button{
+    font-size: .7rem;
+    }
+    .toggle-container{
+        width: 15%;
+    }
+    .search-container {
+        width: 55%;
+        margin: 0.5rem auto;
+    }
+    .location-container {
+        width: 25%;
+    }
+    .section1, .section2, .section3, .section4 {
+        width: 90%;
+        margin-bottom: 5%;
+    }
+    .weather img{
+        height: 5rem;
+    }
+    .main-details{
+        font-size: 12px;
+    }
+    .main-details h1{
+        font-size: 2rem;
+    }
+    .details{
+        grid-template-rows: repeat(2, 6.5rem);
+        gap: .5rem;
+    }
+    #humidity p, #wind p, #pressure p, #uv p {
+        font-size: 11px;
+    }
+    #humidity img, #wind img, #pressure img, #uv img {
+        height: 3rem;
+    }
+    .section4-container{
+        padding: 0;
+    }
+    .section4-column{
+        font-size: 12px;
+        width: 25%;
+    }
+    .section-up{
+        height: 30vh;
+    }
+    .section-down{
+        height: 30vh;
+    }
+    .section4 img{
+        width: 3rem;
+    }
+}
+
+/* Планшети та невеликі екрани */
+@media (min-width: 601px) and (max-width: 705px) {
+    .sections{
+        gap:0;
+        padding: 5vh 0 0 0;
+    }
+    .section1, .section2 {
+        font-size: 10px;
+    }
+    .section-up{
+        height: 25vh;
+        margin-bottom: 5%;
+    }
+    .section-down{
+        height: 30vh;
+        margin-bottom: 5%;
+    }
+    #humidity p, #wind p, #pressure p, #uv p {
+        font-size: 10px;
+    }
+    #humidity img, #wind img, #pressure img, #uv img {
+        height: 2rem;
+    }
+    .weather img {
+        height: 3rem;
+    }
+    .section3 {
+        width: 25%;
+    }
+    .section4-container {
+        padding: 0;
+    }
+    .section4{
+        width: 70%;
+    }
+    .section4-column{
+        font-size: small;
+        width: 15%;
+    }
+    .weather {
+        width: 10%;
+    }
+    .main-details {
+        width: 40%;
+        font-size: x-small;
+    }
+    .details {
+        width: 38%;
+        grid-template-rows: repeat(2, 5rem);
+    }
+    #section3-row1, #section3-row2, #section3-row3 {
+        font-size: 12px;
+    }
+    .section4-container {
+        padding: 0;
+    }
+    .section4-column{
+        font-size: small;
+    }
+    .location-container{
+        font-size: 12px;
+        width: 20%;
+    }
+    .search-container{
+        width:60%
+    }
+}
+
+/* Середні екрани */
+@media (min-width: 705px) and (max-width: 849px) {
+    .sections{
+        gap:0;
+        padding: 0;
+    }
+    .section1 {
+        font-size: 12px;
+        width: 20%;
+    }
+    .section2 {
+        width: 70%;
+    }
+    .section-up{
+        height: 30vh;
+    }
+    #humidity p, #wind p, #pressure p, #uv p {
+        font-size: 10px;
+    }
+    #humidity img, #wind img, #pressure img, #uv img {
+        height: 3rem;
+    }
+    .weather img {
+        height: 8rem;
+    }
+    #searchInput{
+         width: 70%;
+     }
+    #searchButton{
+        width: 27%;
+    }
+    .main-details{
+        font-size: x-small;
+    }
+    .details {
+        grid-template-rows: repeat(2, 6rem);
+    }
+    .section3 {
+        width: 25%;
+    }
+    .section4-container {
+        padding: 0;
+    }
+    .section4-column{
+        font-size: small;
+    }
+    .location-container{
+        font-size: 12px;
+        width: 20%;
+    }
+    .search-container{
+        width:60%
+    }
+}
+
+/* Великі екрани */
+@media (min-width: 850px) and (max-width: 1012px) {
+    .section1, .section2 {
+        font-size: 14px;
+    }
+    #humidity p, #wind p, #pressure p, #uv p {
+        font-size: 12px;
+    }
+    #humidity img, #wind img, #pressure img, #uv img {
+        height: 3.5rem;
+    }
+    .weather{
+        width: 16%;
+    }
+    .weather img {
+        height: 5rem;
+    }
+    .main-details{
+        font-size: small;
+        width: 30%;
+    }
+    .details {
+        grid-template-rows: repeat(2, 7rem);
+        font-size: small;
+        width: 35%;
+    }
+    .sections{
+        gap:4%;
+        padding: 0;
+    }
+
+    .section3 {
+        width: 25%;
+    }
+    .section4-container {
+        padding: 0;
+    }
+    .section-up{
+        height: 30vh;
+    }
+    .section-down{
+        height: 30vh;
+    }
+}
+
+/* Дуже великі екрани */
+@media (min-width: 1013px) {
+    .section1 {
+        width: 25%;
+    }
+    .section2 {
+        width: 65%;
+    }
+    .location-container {
+        width: 17%;
+    }
+    .main-details{
+        font-size: medium;
+    }
 }

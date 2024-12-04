@@ -109,14 +109,12 @@ const createForecastFor3Days = function (id,src,temp,date){
 
 const innerHtml = function (value) {
     sections.innerHTML = `
-    <div class="section-up section1">
-        <div id="text-container__section1">
-            <h3>${value.location.name}</h3>
+    <div class="section-up section1 container">
+            <h1>${value.location.name}</h1>
             <h1>${value.location.localtime.split(" ")[1]}</h1>
             <p>${value.location.localtime.split(" ")[0].split("-").reverse().join("-")}</p>
-        </div>
     </div>
-    <div class="section-up section2">
+    <div class="section-up section2 container">
         <div class="main-details">
             <h1> ${value.current.temp_c}</h1>
             <p> Feels like: <span style="font-weight: bold">${value.current.feelslike_c}</span></p>
@@ -134,13 +132,13 @@ const innerHtml = function (value) {
             ${createWeatherDetails('uv', 'images/img_5.png', value.current.uv, 'UV')}
         </div>
     </div>
-    <div class="section-down section3">
+    <div class="section-down section3 container">
         <h1>3 Days Forecast:</h1>
         ${createForecastFor3Days('section3-row1', `${value.forecast.forecastday[0].day.condition.icon}`, `${value.forecast.forecastday[0].day.avgtemp_c}°C`, `${value.forecast.forecastday[0].date.split("-").reverse().join('.')}`)}
         ${createForecastFor3Days('section3-row2', `${value.forecast.forecastday[1].day.condition.icon}`, `${value.forecast.forecastday[1].day.avgtemp_c}°C`, `${value.forecast.forecastday[1].date.split("-").reverse().join('.')}`)}
         ${createForecastFor3Days('section3-row3', `${value.forecast.forecastday[2].day.condition.icon}`, `${value.forecast.forecastday[2].day.avgtemp_c}°C`, `${value.forecast.forecastday[2].date.split("-").reverse().join('.')}`)}
     </div>
-     <div class="section-down section4">
+     <div class="section-down section4 container">
         <h1>Hourly Forecast:</h1>
         <div class="section4-container">
         ${createHoursForecast(value)} 
