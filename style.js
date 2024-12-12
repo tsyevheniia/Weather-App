@@ -39,6 +39,11 @@ const toggleDarkMode = ()=> {
         textMode.textContent = 'To Light Mode';
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeSwitch = document.getElementById('darkModeSwitch');
+    darkModeSwitch.addEventListener('change', toggleDarkMode);
+});
+
 searchInput.addEventListener('keydown', async (e) => {
     if (e.key === 'Enter' && searchInput.value !== '') {
         e.preventDefault();
