@@ -1,11 +1,22 @@
 const path = require('path');
 
 module.exports = {
-    mode: "development",
     entry: './style.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ],
+            },
+        ],
     },
     devServer: {
         static: {
@@ -13,4 +24,5 @@ module.exports = {
         },
         historyApiFallback: true,
     },
+    mode: "development",
 };

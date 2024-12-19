@@ -1,3 +1,4 @@
+import './style.scss';
 const apiKey = '7c5b7c16c8ec4f44a45105749243110'
 const textMode = document.getElementsByClassName('form-check-label')[0];
 const btnLocation = document.getElementById('btn-location');
