@@ -5,14 +5,24 @@ const btnLocation = document.getElementById('btn-location');
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const sections = document.getElementsByClassName('sections')[0];
+const modalElement = document.getElementById('exampleModal');
+let exampleModal;
+if (modalElement) {
+     exampleModal = new bootstrap.Modal(modalElement);
+}
 
-const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+
+document.addEventListener('DOMContentLoaded', () => {
+    const greetingModal = document.getElementById('greetingModal');
+    if (greetingModal) {
+        const modalInstance = new bootstrap.Modal(greetingModal);
+        modalInstance.show();
+    }
+});
 
 const hideModal = ()=> {
-    if (exampleModal) {
-        exampleModal.dispose(); // Повністю видаляє інстанс модального вікна
-    }
-    document.getElementsByClassName('modal')[0].style.display = 'none';
+    exampleModal.hide()
+
 }
 
 btnLocation.addEventListener('click', async () => {
@@ -35,9 +45,9 @@ const toggleDarkMode = ()=> {
     document.body.classList.toggle('darkMode');
 
     if (document.body.classList.contains('lightMode')) {
-        textMode.textContent = 'To Dark Mode';
+        textMode.textContent = 'Light Mode';
     } else {
-        textMode.textContent = 'To Light Mode';
+        textMode.textContent = 'Dark Mode';
     }
 }
 document.addEventListener('DOMContentLoaded', function() {
@@ -131,8 +141,8 @@ const innerHtml =  (value) => {
         <div class="main-details">
             <h1> ${value.current.temp_c}</h1>
             <p> Feels like: <span style="font-weight: bold">${value.current.feelslike_c}</span></p>
-            ${createMainDetails("sunrise", "images/img.png", "sunrise", "sunrise-text", "Sunrise", `${value.forecast.forecastday[0].astro.sunrise}`)}
-            ${createMainDetails("sunset", "images/img_1.png", "sunset", "sunset-text", "Sunset", `${value.forecast.forecastday[0].astro.sunset}`)}
+            ${createMainDetails("sun", "images/img.png", "sunrise", "sun-text", "Sunrise", `${value.forecast.forecastday[0].astro.sunrise}`)}
+            ${createMainDetails("sun", "images/img_1.png", "sunset", "sun-text", "Sunset", `${value.forecast.forecastday[0].astro.sunset}`)}
         </div>
         <div class="weather">
             <img src=${value.current.condition.icon} alt="weather">
@@ -147,13 +157,13 @@ const innerHtml =  (value) => {
     </div>
     <div class="section-down section3 container">
         <h1>3 Days Forecast</h1>
-        ${createForecastFor3Days('section3-row1', `${value.forecast.forecastday[0].day.condition.icon}`, `${value.forecast.forecastday[0].day.avgtemp_c}°C`, `${value.forecast.forecastday[0].date.split("-").reverse().join('.')}`)}
-        ${createForecastFor3Days('section3-row2', `${value.forecast.forecastday[1].day.condition.icon}`, `${value.forecast.forecastday[1].day.avgtemp_c}°C`, `${value.forecast.forecastday[1].date.split("-").reverse().join('.')}`)}
-        ${createForecastFor3Days('section3-row3', `${value.forecast.forecastday[2].day.condition.icon}`, `${value.forecast.forecastday[2].day.avgtemp_c}°C`, `${value.forecast.forecastday[2].date.split("-").reverse().join('.')}`)}
+        ${createForecastFor3Days('row', `${value.forecast.forecastday[0].day.condition.icon}`, `${value.forecast.forecastday[0].day.avgtemp_c}°C`, `${value.forecast.forecastday[0].date.split("-").reverse().join('.')}`)}
+        ${createForecastFor3Days('row', `${value.forecast.forecastday[1].day.condition.icon}`, `${value.forecast.forecastday[1].day.avgtemp_c}°C`, `${value.forecast.forecastday[1].date.split("-").reverse().join('.')}`)}
+        ${createForecastFor3Days('row', `${value.forecast.forecastday[2].day.condition.icon}`, `${value.forecast.forecastday[2].day.avgtemp_c}°C`, `${value.forecast.forecastday[2].date.split("-").reverse().join('.')}`)}
     </div>
      <div class="section-down section4 container">
         <h1>Hourly Forecast</h1>
-        <div class="section4-container">
+        <div class="container">
         ${createHoursForecast(value)} 
         </div>
     </div>
@@ -165,7 +175,7 @@ const createHoursForecast =  (value) => {
 
     dailyHours.forEach(hour => {
         forecastHtml +=
-            `<div class="section4-column light">
+            `<div class="column light">
                     <p>${hour}:00</p>
                     <img src=${value.forecast.forecastday[0].hour[hour].condition.icon} alt="sun">
                         <p>${value.forecast.forecastday[0].hour[hour].temp_c}</p>
@@ -177,7 +187,7 @@ const createHoursForecast =  (value) => {
     let nightHours = [21, 0]
 
     nightHours.forEach(hour => {
-        forecastHtml += `<div class="section4-column dark">
+        forecastHtml += `<div class="column dark">
             <p>${hour}:00</p>
             <img src=${value.forecast.forecastday[0].hour[hour].condition.icon} alt="sun">
                 <p>${value.forecast.forecastday[0].hour[hour].temp_c}</p>
