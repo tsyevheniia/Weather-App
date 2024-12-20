@@ -145,10 +145,6 @@ body {
 }
 
 #greetingModal{
-  .modal-content {
-    height: 100%;
-  }
-
   .modal-dialog {
     top: 10%;
     height: 35%;
@@ -408,6 +404,13 @@ body {
       font-size: .9rem;
     }
   }
+@media (max-height: 766px) {
+.column{
+  p{
+    margin-top: 5%;
+  }
+}
+}
 
   @media (max-width: 399px) {
     padding: 0;
@@ -542,6 +545,8 @@ body {
   border-radius: 30px;
   box-shadow: 12px 12px 10px gray;
 
+  overflow: scroll;
+
   @media (max-width: 600px) {
     height: 20vh;
   }
@@ -568,6 +573,8 @@ body {
 
   font-size: 1.2rem;
   text-align: center;
+
+  overflow: scroll;
 
   @media (max-width: 600px) {
     height: 18vh;
