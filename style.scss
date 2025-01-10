@@ -415,6 +415,9 @@ body {
     .column {
       width: 14.4%;
       height: 100%;
+      p{
+        font-size: .5rem;
+      }
     }
   }
 
@@ -631,7 +634,7 @@ body {
     width: 25%;
 
     img {
-      height: 5rem;
+      height: 4rem;
     }
 
     p {
