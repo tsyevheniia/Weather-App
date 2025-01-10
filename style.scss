@@ -34,7 +34,7 @@ body {
 .details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 8rem);
+  grid-template-rows: repeat(2, 14vh);
   margin: 1.5%;
   width: 35%;
 
@@ -51,11 +51,10 @@ body {
     grid-template-rows: repeat(2, 5rem);
   }
   @media (min-width: 705px) and (max-width: 849px) {
-    grid-template-rows: repeat(2, 6.5rem);
+    grid-template-rows: repeat(2, 6rem);
   }
   @media (min-width: 850px) and (max-width: 1029px) {
     grid-template-rows: repeat(2, 7rem);
-    font-size: small;
     width: 40%;
   }
 }
@@ -80,7 +79,6 @@ body {
   h1 {
     margin: 0;
     margin-left: 10%;
-    font-size: 4rem;
     text-align: left;
   }
 
@@ -110,9 +108,6 @@ body {
   }
 
   @media (min-width: 381px) and (max-width: 600px) {
-    p {
-      font-size: .6rem;
-    }
     h1 {
       font-size: 1rem;
     }
@@ -124,9 +119,6 @@ body {
 
   @media (min-width: 601px) and (max-width: 705px) {
     width: 37%;
-    p {
-      font-size: .7rem;
-    }
   }
 
   @media (min-width: 706px) and (max-width: 849px) {
@@ -144,13 +136,13 @@ body {
   }
 }
 
-#greetingModal{
+#greetingModal {
   .modal-dialog {
     top: 10%;
     height: 35%;
   }
 
-  .modal-body{
+  .modal-body {
     padding: 3.5rem .2rem;
   }
 }
@@ -162,7 +154,7 @@ body {
   z-index: 1;
 }
 
-.spinner-border{
+.spinner-border {
   color: black;
 }
 
@@ -178,6 +170,7 @@ body {
   height: 20vh;
   padding-left: calc(var(--bs-gutter-x) * .5);
   padding-right: calc(var(--bs-gutter-x) * .5);
+  margin-bottom: 1rem;
 
   @media (max-width: 600px) {
     height: 15vh;
@@ -250,10 +243,7 @@ body {
 
   @media (max-width: 600px) {
     width: 80%;
-    gap: .5rem;
-    h1 {
-      font-size: 1.5rem;
-    }
+
     p {
       font-size: 1rem;
     }
@@ -296,11 +286,12 @@ body {
   flex-direction: column;
   gap: 5%;
   width: 20%;
+  padding: 3px;
 
   h1 {
     margin: 1.3rem 0 0;
     width: 100%;
-    font-size: x-large;
+    font-size: 3vh;
     text-align: center;
   }
 
@@ -311,9 +302,8 @@ body {
   #row {
     display: flex;
     flex-direction: row;
-    gap: 10%;
-    height: 2rem;
-    justify-content: center;
+    height: 3vh;
+    justify-content: space-between;
     margin-top: 6%;
   }
 
@@ -329,6 +319,7 @@ body {
       margin-top: 2px;
       height: 3rem;
       font-size: .8rem;
+      justify-content: space-around;
     }
   }
 
@@ -373,12 +364,12 @@ body {
 
   h1 {
     width: 100%;
-    font-size: 2rem;
+    font-size: 3.5vh;
     text-align: center;
   }
 
   img {
-    height: 4rem;
+    height: 6.6vh;
   }
 
   .container {
@@ -396,26 +387,21 @@ body {
     width: 20%;
 
     border-radius: 30px;
+    box-sizing: border-box;
 
     text-align: center;
+    justify-content: center;
 
     p {
-      margin: 5%;
-      font-size: .9rem;
+      margin: 0;
+      font-size: 1rem;
     }
   }
-@media (max-height: 766px) {
-.column{
-  p{
-    margin-top: 5%;
-  }
-}
-}
 
   @media (max-width: 399px) {
     padding: 0;
     width: 80%;
-    h1{
+    h1 {
       font-size: 1rem;
     }
     img {
@@ -429,17 +415,13 @@ body {
     .column {
       width: 14.4%;
       height: 100%;
-      p {
-        margin: 9px;
-        font-size: .4rem;
-      }
     }
   }
 
   @media (min-width: 400px) and (max-width: 489px) {
     padding: 0;
     width: 80%;
-    h1{
+    h1 {
       font-size: 1rem;
     }
     img {
@@ -474,7 +456,8 @@ body {
       height: 3rem;
     }
     .column {
-      height: 100%;
+      width: 14.4%;
+
       p {
         font-size: .6rem;
         margin: 2px;
@@ -486,17 +469,15 @@ body {
     width: 70%;
     .container {
       padding: 0;
+      height: 80%;
     }
     h1 {
       font-size: 1.5rem;
     }
 
     .column {
-      font-size: small;
-      width: 15%;
-
       p {
-        font-size: 12px;
+        font-size: small;
         margin-top: 15%;
       }
     }
@@ -522,17 +503,20 @@ body {
   @media (min-width: 850px) and (max-width: 1012px) {
     .container {
       padding: 0;
+      height: 75%;
     }
   }
 
   @media (min-width: 1012px) {
     .column {
       gap: 3%;
-      img{
+
+      img {
         width: 60%;
         margin: 0 auto;
       }
-      p{
+
+      p {
         margin: 3px;
       }
     }
@@ -545,7 +529,6 @@ body {
   border-radius: 30px;
   box-shadow: 12px 12px 10px gray;
 
-  overflow: scroll;
 
   @media (max-width: 600px) {
     height: 20vh;
@@ -567,17 +550,27 @@ body {
 
 .section-up {
   height: 35vh;
+  max-height: 35vh;
 
   border-radius: 30px;
   box-shadow: 12px 12px 10px gray;
 
-  font-size: 1.2rem;
+  h1 {
+    font-size: 4vh;
+  }
+
+  p {
+    font-size: 2.3vh;
+  }
+
   text-align: center;
 
-  overflow: scroll;
 
   @media (max-width: 600px) {
     height: 18vh;
+    p {
+      font-size: 1.2vh;
+    }
   }
 
   @media (min-width: 601px) and (max-width: 705px) {
@@ -586,6 +579,9 @@ body {
 
     h1 {
       font-size: 1.5rem;
+    }
+    p {
+      font-size: 1.5vh;
     }
   }
 
@@ -670,12 +666,12 @@ body {
 
 #humidity, #wind, #pressure, #uv {
   img {
-    height: 4rem;
+    height: 8vh;
   }
 
   p {
     margin: 0;
-    font-size: 15px;
+    font-size: 2vh;
   }
 
   @media (max-width: 382px) {
@@ -700,7 +696,7 @@ body {
 
   @media (min-width: 445px) and (max-width: 600px) {
     p {
-      font-size: 8px;
+      font-size: 1.3vh;
     }
 
     img {
@@ -719,17 +715,17 @@ body {
 
   @media (min-width: 705px) and (max-width: 849px) {
     p {
-      font-size: 10px;
+      font-size: 1.7vh;
     }
 
     img {
-      height: 3.5rem;
+      height: 3rem;
     }
   }
 
   @media (min-width: 850px) and (max-width: 1030px) {
     p {
-      font-size: 12px;
+      font-size: 1.7vh;
     }
     img {
       height: 4rem;
@@ -778,14 +774,12 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
-  margin: 10%;
+  margin: 5%;
 }
 
 #sun-text {
   display: flex;
   flex-direction: column;
-  margin-left: 10%;
 
   @media (min-width: 1030px) {
     font-size: 12px;
