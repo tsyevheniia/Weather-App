@@ -10,6 +10,7 @@ $light-section: linear-gradient(90deg, #D9D9D9, #F5F5F5);
 body {
   margin: 0;
   width: 100%;
+  min-height: 100vh;
 }
 
 #btn-location {
@@ -34,7 +35,7 @@ body {
 .details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 14vh);
+  grid-template-rows: repeat(2, 7rem);
   margin: 1.5%;
   width: 35%;
 
@@ -48,7 +49,7 @@ body {
   }
   @media (min-width: 601px) and (max-width: 705px) {
     width: 39%;
-    grid-template-rows: repeat(2, 5rem);
+    grid-template-rows: repeat(2, 6rem);
   }
   @media (min-width: 705px) and (max-width: 849px) {
     grid-template-rows: repeat(2, 6rem);
@@ -118,7 +119,7 @@ body {
   }
 
   @media (min-width: 601px) and (max-width: 705px) {
-    width: 37%;
+    width: 30%;
   }
 
   @media (min-width: 706px) and (max-width: 849px) {
@@ -129,7 +130,6 @@ body {
   }
 
   @media (min-width: 850px) and (max-width: 1030px) {
-    width: 35%;
     p {
       font-size: 1rem;
     }
@@ -167,7 +167,7 @@ body {
 }
 
 .navbar {
-  height: 20vh;
+  height: 8rem;
   padding-left: calc(var(--bs-gutter-x) * .5);
   padding-right: calc(var(--bs-gutter-x) * .5);
   margin-bottom: 1rem;
@@ -211,11 +211,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10%;
-  height: 80vh;
+  height: 40rem;
   padding: 1% 5%;
 
   @media (max-width: 600px) {
-    height: 85vh;
+    height: 50rem;
     gap: .2rem;
     padding: 0;
   }
@@ -227,6 +227,7 @@ body {
   @media (min-width: 705px) and (max-width: 849px) {
     gap: 0;
     padding: 0;
+    margin-top: 3.5rem;
   }
 
   @media (min-width: 850px) and (max-width: 1012px) {
@@ -249,6 +250,10 @@ body {
     }
   }
 
+  @media (min-width: 601px) and (max-width: 705px) {
+    width: 10rem;
+  }
+
   @media (min-width: 705px) and (max-width: 849px) {
     font-size: 12px;
     width: 25%;
@@ -269,12 +274,11 @@ body {
     padding: 0;
     gap: 0;
   }
-
-  @media (min-width: 705px) and (max-width: 849px) {
+  @media (min-width: 601px) and (max-width: 704px) {
     width: 70%;
   }
-  @media (min-width: 850px) and (max-width: 1012px) {
-    padding: 15px;
+  @media (min-width: 705px) and (max-width: 849px) {
+    width: 70%;
   }
   @media (min-width: 1013px) {
     width: 65%;
@@ -284,14 +288,14 @@ body {
 .section3 {
   display: flex;
   flex-direction: column;
-  gap: 5%;
-  width: 20%;
-  padding: 3px;
+  gap: 7%;
+  width: 23%;
+  padding: 0 10px;
 
   h1 {
     margin: 1.3rem 0 0;
     width: 100%;
-    font-size: 3vh;
+    font-size: 1.4rem;
     text-align: center;
   }
 
@@ -302,7 +306,7 @@ body {
   #row {
     display: flex;
     flex-direction: row;
-    height: 3vh;
+    height: 1.5rem;
     justify-content: space-between;
     margin-top: 6%;
   }
@@ -326,7 +330,7 @@ body {
   @media (min-width: 601px) and (max-width: 705px) {
     width: 25%;
     #row {
-      font-size: 12px;
+      font-size: 11px;
       gap: 4%;
       margin-top: 10%;
     }
@@ -364,12 +368,13 @@ body {
 
   h1 {
     width: 100%;
-    font-size: 3.5vh;
+    font-size: 1.5rem;
     text-align: center;
   }
 
   img {
-    height: 6.6vh;
+    height: 35%;
+    width: 80%;
   }
 
   .container {
@@ -377,14 +382,15 @@ body {
     flex-direction: row;
     height: 79%;
     padding: 0;
+    gap: 15px;
   }
 
   .column {
     display: flex;
     flex-direction: column;
 
-    margin-left: 2%;
     width: 20%;
+    gap: 10px;
 
     border-radius: 30px;
     box-sizing: border-box;
@@ -394,11 +400,11 @@ body {
 
     p {
       margin: 0;
-      font-size: 1rem;
+      font-size: .8rem;
     }
   }
 
-  @media (max-width: 399px) {
+  @media (max-width: 449px) {
     padding: 0;
     width: 80%;
     h1 {
@@ -411,44 +417,28 @@ body {
     }
     .container {
       width: 100%;
+      gap:2vw;
+      padding: 0 9px;
     }
     .column {
-      width: 14.4%;
-      height: 100%;
-      p{
-        font-size: .5rem;
-      }
-    }
-  }
-
-  @media (min-width: 400px) and (max-width: 489px) {
-    padding: 0;
-    width: 80%;
-    h1 {
-      font-size: 1rem;
-    }
-    img {
-      width: 2rem;
-      margin: 0 auto;
-      height: 2rem;
-    }
-    .container {
-      width: 100%;
-    }
-    .column {
+      gap:3px;
       width: 14.4%;
       height: 100%;
 
       p {
-        margin: 7px;
-        font-size: .5rem;
+        font-size: .4rem;
+        margin-top: 3px;
       }
     }
   }
 
-  @media (min-width: 490px) and (max-width: 600px) {
+
+  @media (min-width: 450px) and (max-width: 600px) {
     width: 80%;
 
+    .container{
+      gap:9px;
+    }
     h1 {
       font-size: 1.5rem;
       margin-bottom: 2px;
@@ -459,29 +449,36 @@ body {
       height: 3rem;
     }
     .column {
-      width: 14.4%;
+      gap: 0;
+      width: 15%;
 
       p {
-        font-size: .6rem;
-        margin: 2px;
+        font-size: .5rem;
+        margin: 0;
       }
     }
   }
 
   @media (min-width: 601px) and (max-width: 705px) {
     width: 70%;
+
     .container {
       padding: 0;
       height: 80%;
+      gap: 5px;
     }
+
     h1 {
       font-size: 1.5rem;
     }
 
     .column {
+      gap: 0;
+      justify-content: flex-start;
+
       p {
-        font-size: small;
-        margin-top: 15%;
+        font-size: 12px;
+        margin-top: 10px;
       }
     }
   }
@@ -495,10 +492,13 @@ body {
       height: 80%;
     }
     .column {
+      width: 14.4%;
+      gap: 5px;
+      justify-content: flex-start;
 
       p {
-        font-size: small;
-        margin-top: 15%;
+        font-size: 12px;
+        margin-top: 10%;
       }
     }
   }
@@ -506,7 +506,7 @@ body {
   @media (min-width: 850px) and (max-width: 1012px) {
     .container {
       padding: 0;
-      height: 75%;
+      height: 82%;
     }
   }
 
@@ -527,76 +527,64 @@ body {
 }
 
 .section-down {
-  height: 30vh;
+  height: 15rem;
 
   border-radius: 30px;
   box-shadow: 12px 12px 10px gray;
 
 
   @media (max-width: 600px) {
-    height: 20vh;
+    height: 10rem;
   }
 
   @media (min-width: 601px) and (max-width: 705px) {
-    height: 30vh;
     margin-bottom: 5%;
-  }
-
-  @media (min-width: 706px) and (max-width: 849px) {
-    height: 30vh;
-  }
-
-  @media (min-width: 850px) and (max-width: 1012px) {
-    height: 30vh;
   }
 }
 
 .section-up {
-  height: 35vh;
-  max-height: 35vh;
+  height: 18rem;
 
   border-radius: 30px;
   box-shadow: 12px 12px 10px gray;
 
   h1 {
-    font-size: 4vh;
+    font-size: 2.5rem;
   }
 
   p {
-    font-size: 2.3vh;
+    font-size: 1rem;
   }
 
   text-align: center;
 
 
   @media (max-width: 600px) {
-    height: 18vh;
+    height: 10rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
     p {
-      font-size: 1.2vh;
+      font-size: .7rem;
     }
   }
 
   @media (min-width: 601px) and (max-width: 705px) {
-    height: 25vh;
+    height: 14rem;
     margin-bottom: 5%;
-
     h1 {
       font-size: 1.5rem;
     }
-    p {
-      font-size: 1.5vh;
-    }
+
   }
 
   @media (min-width: 706px) and (max-width: 849px) {
-    height: 30vh;
+    height: 15rem;
     h1 {
       font-size: 2rem;
     }
-  }
-
-  @media (min-width: 850px) and (max-width: 1012px) {
-    height: 30vh;
   }
 }
 
@@ -643,9 +631,9 @@ body {
   }
 
   @media (min-width: 601px) and (max-width: 705px) {
-    width: 15%;
+    width: 20%;
     img {
-      height: 3rem;
+      height: 5rem;
     }
     p {
       font-size: 15px;
@@ -659,7 +647,7 @@ body {
   }
 
   @media (min-width: 850px) and (max-width: 1012px) {
-    width: 16%;
+    width: 20%;
 
     img {
       height: 5rem;
@@ -669,12 +657,12 @@ body {
 
 #humidity, #wind, #pressure, #uv {
   img {
-    height: 8vh;
+    height: 3.5rem;
   }
 
   p {
     margin: 0;
-    font-size: 2vh;
+    font-size: 1rem;
   }
 
   @media (max-width: 382px) {
@@ -699,7 +687,7 @@ body {
 
   @media (min-width: 445px) and (max-width: 600px) {
     p {
-      font-size: 1.3vh;
+      font-size: 10px;
     }
 
     img {
@@ -712,13 +700,13 @@ body {
       font-size: 11px;
     }
     img {
-      height: 2rem;
+      height: 3.5rem;
     }
   }
 
   @media (min-width: 705px) and (max-width: 849px) {
     p {
-      font-size: 1.7vh;
+      font-size: .7rem;
     }
 
     img {
