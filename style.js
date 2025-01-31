@@ -8,6 +8,8 @@ const searchButton = document.getElementById('searchButton');
 const sections = document.getElementsByClassName('sections')[0];
 const modalElement = document.getElementById('exampleModal');
 let exampleModal;
+let weather;
+
 if (modalElement) {
     exampleModal = new bootstrap.Modal(modalElement);
 }
@@ -95,13 +97,16 @@ const getWeatherByPosition = async () => {
     console.log(response)
     if (value.ok) {
         hideModal()
+        weather = response;
         innerHtml(response)
     }
 }
 const getWeatherByCity = async () => {
     await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchInput.value}&days=10&aqi=no&alerts=no`)
         .then(value => value.json())
-        .then(val => innerHtml(val))
+        .then(val => {
+            weather = val;
+            innerHtml(val)})
         .catch(error => errorMessage())
 }
 
@@ -130,7 +135,6 @@ const createForecastFor3Days = (id, src, temp, date) => {
             <p>${date}</p>
     </div>`
 }
-
 const innerHtml = (value) => {
     sections.innerHTML = `
     <div class="section-up section1 container">
@@ -173,8 +177,9 @@ const innerHtml = (value) => {
 const createHoursForecast = (value) => {
     let dailyHours = [9, 12, 15, 18]
     let forecastHtml = '';
+    let filteredHours = window.innerWidth <= 600 ? [dailyHours[0], dailyHours[1]] : dailyHours;
 
-    dailyHours.forEach(hour => {
+    filteredHours.forEach(hour => {
         forecastHtml +=
             `<div class="column light">
                     <p>${hour}:00</p>
@@ -198,3 +203,12 @@ const createHoursForecast = (value) => {
     })
     return forecastHtml;
 }
+
+window.addEventListener('resize', () => {
+    if (weather) {
+        const hourlyContainer = document.querySelector('.section4 .container');
+        if (hourlyContainer) {
+            hourlyContainer.innerHTML = createHoursForecast(weather);
+        }
+    }
+});
