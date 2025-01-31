@@ -1,4 +1,5 @@
 import './style.scss';
+
 const apiKey = '7c5b7c16c8ec4f44a45105749243110'
 const textMode = document.getElementsByClassName('form-check-label')[0];
 const btnLocation = document.getElementById('btn-location');
@@ -8,7 +9,7 @@ const sections = document.getElementsByClassName('sections')[0];
 const modalElement = document.getElementById('exampleModal');
 let exampleModal;
 if (modalElement) {
-     exampleModal = new bootstrap.Modal(modalElement);
+    exampleModal = new bootstrap.Modal(modalElement);
 }
 
 
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const hideModal = ()=> {
+const hideModal = () => {
     exampleModal.hide()
 
 }
@@ -40,7 +41,7 @@ let lat, lng;
 document.body.classList.add('lightMode');
 
 
-const toggleDarkMode = ()=> {
+const toggleDarkMode = () => {
     document.body.classList.toggle('lightMode');
     document.body.classList.toggle('darkMode');
 
@@ -50,7 +51,7 @@ const toggleDarkMode = ()=> {
         textMode.textContent = 'Dark Mode';
     }
 }
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const darkModeSwitch = document.getElementById('darkModeSwitch');
     darkModeSwitch.addEventListener('change', toggleDarkMode);
 });
@@ -73,18 +74,18 @@ searchButton.addEventListener('click', async (e) => {
 
 const getUserLocation = () => new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
-         (position) => {
+        (position) => {
             lat = position.coords.latitude;
             lng = position.coords.longitude;
 
             resolve();
         },
-         (positionError)=> {
+        (positionError) => {
             reject(positionError);
         }
     );
 });
-const errorMessage = ()=> {
+const errorMessage = () => {
     alert('Wrong name of city! Try again!')
 }
 const getWeatherByPosition = async () => {
@@ -92,7 +93,7 @@ const getWeatherByPosition = async () => {
     console.log(value.ok)
     const response = await value.json()
     console.log(response)
-    if (value.ok){
+    if (value.ok) {
         hideModal()
         innerHtml(response)
     }
@@ -123,14 +124,14 @@ const createMainDetails = (id, src, alt, secondId, label, value) => {
     </div>`
 }
 const createForecastFor3Days = (id, src, temp, date) => {
-     return `<div id="${id}">
+    return `<div id="${id}">
         <img src="${src}">
             <p>${temp}</p>
             <p>${date}</p>
     </div>`
 }
 
-const innerHtml =  (value) => {
+const innerHtml = (value) => {
     sections.innerHTML = `
     <div class="section-up section1 container">
         <h1>${value.location.name}</h1>
@@ -169,7 +170,7 @@ const innerHtml =  (value) => {
     </div>
     `
 }
-const createHoursForecast =  (value) => {
+const createHoursForecast = (value) => {
     let dailyHours = [9, 12, 15, 18]
     let forecastHtml = '';
 
