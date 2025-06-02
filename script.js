@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const hideModal = () => {
     exampleModal.hide()
-
 }
 
 btnLocation.addEventListener('click', async () => {
